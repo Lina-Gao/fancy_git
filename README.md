@@ -2,7 +2,7 @@
 
 *by Eric Earl and Anders Perrone*
 
-**GitHub repository** at **https://github.com/ericearl/fancy_git**
+**GitHub** repository at **https://github.com/ericearl/fancy_git**
 
 ### A practical guide to some advanced features of Git version control
 
@@ -14,7 +14,7 @@ This presentation's PDF was written from a README.md markdown file in [**Atom**]
 
 ## For starters
 
-Here is an assumed minimal Git setup and the initial commit of this README for use with this presentation.  (more on `git remote` and `git push` later)
+Here is an assumed minimal Git setup and the initial commit of this README for use with this presentation including the setup and push to **GitHub** (more on `git remote` and `git push` later).
 
 ```shell
 # setting up the ~/.gitconfig file
@@ -29,7 +29,7 @@ cd fancy_git
 git init
 touch README.md
 
-# (EDITING)
+# (EDITING README.md)
 
 # staging and committing the README.md
 git add README.md
@@ -43,7 +43,7 @@ git remote add origin https://github.com/ericearl/fancy_git.git
 git push --set-upstream origin master
 ```
 
-Or you could just clone the [current repository on GitHub](https://github.com/ericearl/fancy_git).
+Or you could just clone the [current repository on **GitHub**](https://github.com/ericearl/fancy_git).
 
 ```shell
 git clone https://github.com/ericearl/fancy_git.git
@@ -52,26 +52,43 @@ git clone https://github.com/ericearl/fancy_git.git
 
 <div class="page-break"></div>
 
-## branching
+## Branching
+
+Branching is a way to either start development on a new feature/functionality or begin separate work within the same repository.  It is named after a tree concept which is why growing a new segment is called "branching".
+
+```shell
+# creating a new branch and beginning work on it
+git branch devel-eric
+git checkout devel-eric
+
+# (EDITING README.md)
+
+# staging and committing the edited README.md to the devel-eric branch
+git add README.md
+git commit --message="Fix typos and begin branching section
+
+The first commit to the devel-eric branch, meant for further development by Eric.
+Fixed typos were mainly bolding GitHub and capitalizing section titles for
+consistent formatting."
+
+```
+
+## Synchronizing (fetch/pull/push)
 
 
 
-## synchronizing (fetch/pull/push)
-
-
-
-## resolving conflicts
+## Resolving conflicts
 
 
 
 <div class="page-break"></div>
 
-## merging
+## Merging
 
 
 
-## rebasing
+## Rebasing
 
 
 
-## pull requests
+## Pull requests

@@ -164,10 +164,47 @@ git merge devel-eric
 # since there are conflicts that can't be resolved automatically
 git mergetool
 
+# (PERFORMING MERGE)
+
+# to finish the merge
+git add README.md
+git commit --message="Merge devel-eric to master and finish merging section
+
+Ending the merging section with a mergetool commit from the
+devel-eric branch to the master branch."
+
+# and don't forget to send changes for everybody else
+git push
+
 ```
 
 ## Rebasing
 
+Let's pretend that Anders began committing to a branch off the merge commit to the master branch and he has many smaller commits.  One use of rebasing is to "squash" many commits into one, effectively rewriting history for the purposes of either preparing a nicer pull request or simplifying commit history.  **But be careful**, rebasing is best done to a local copy before combining with a master repository.
 
+```shell
+# Anders' local history
+git branch devel-anders
+git checkout devel-anders
+# (EDITING README.md)
+git add README.md
+git commit --message="Commit 1"
+# (EDITING README.md)
+git add README.md
+git commit --message="Commit 2"
+# (EDITING README.md)
+git add README.md
+git commit --message="Commit 3"
+
+# prepare to rebase the last 3 commits
+git rebase --interactive HEAD~3
+
+# the editor opens and shows rebasing options at the bottom
+# Anders changes the 2nd and 3rd lines from "pick" to "squash"
+# the next editor offers a chance to change the commit message for the rebase
+
+```
 
 ## Pull requests
+
+Pull requests are a way to contribute back to a repository in a structured format encouraging code review.  This way the original author(s) can discuss with contributors and decide whether or not to integrate parts or the whole of the contributor's changes.

@@ -39,8 +39,10 @@ A presentation in a README written by way of command history."
 
 # (CREATING fancy_git REPOSITORY ON GitHub)
 
+# setting GitHub as the "upstream" remote repository to simplify synchronizing
 git remote add origin https://github.com/ericearl/fancy_git.git
 git push --set-upstream origin master
+
 ```
 
 Or you could just clone the [current repository on **GitHub**](https://github.com/ericearl/fancy_git).
@@ -75,7 +77,42 @@ consistent formatting."
 
 ## Synchronizing (fetch/pull/push)
 
+You may have noticed the `git remote` command earlier.  That command is used to add a remote repository (on another server) to the local repository (on your computer).  This allows for communicating commit history changes between the repositories.
 
+```shell
+# this command adds "origin" as an alias for the github repository
+git remote add origin https://github.com/ericearl/fancy_git.git
+
+```
+
+Once a remote repository is defined you can start using fetch, pull, and push.  `git fetch` is a way to see incoming changes that you can merge to your current branch with `git pull`.  When you're ready to send your changes to the remote repository you use `git push`.  Here is an example of common use pretending I am on the devel-eric branch where I am getting ready to synchronize my changes and there are no new changes to the master branch.
+
+```shell
+# (EDITING README.md)
+
+# staging and committing the edited README.md to the devel-eric branch
+git add README.md
+git commit --message="Begin synchronizing section
+
+Added a comment about the first git push command and started the synchronizing
+section."
+
+# fetching from the remote repository
+git fetch
+
+# viewing history to see nothing's changed
+# "--graph" shows a graph on the left of the current tree
+# "--decorate" is shorthand for "--decorate=short"
+# "--oneline" is shorthand for "--pretty=oneline --abbrev-commit"
+git log --graph --decorate --oneline
+
+# deciding to pull all changes, told there are none
+git pull
+
+# ready to push, it's only this simple because "upstream" is already set
+git push
+
+```
 
 ## Resolving conflicts
 

@@ -62,7 +62,21 @@ git clone https://github.com/ericearl/fancy_git.git
 
 ## resolving conflicts
 
+Meanwhile, back on the master branch...
 
+```shell
+# (EDITING)
+
+# staging and committing the README.md
+git add README.md
+git commit --message="Begin conflict section
+
+Beginning the conflict section with details of the master branch activity."
+
+# sending the changes along o GitHub
+git push
+
+```
 
 <div class="page-break"></div>
 

@@ -114,15 +114,39 @@ git push
 
 ```
 
-## Resolving conflicts
+## Resolving conflicts with KDiff3
 
+If a difference is found you can resolve it by comparing files.  Difference tools like KDiff3 make this easier.
 
+```shell
+git difftool
+
+```
 
 <div class="page-break"></div>
 
 ## Merging
 
+At this point, I purposefully made a new master branch commit before merging the devel-eric branch changes so my development branch will need to merge into the master branch.
 
+```shell
+# (EDITING README.md)
+
+# staging and committing the edited README.md to the devel-eric branch
+git add README.md
+git commit --message="Begin merging section
+
+Beginning the merging section with an example merge from the devel-eric branch
+to the master branch."
+
+# pulling reveals a new master branch commit
+git pull
+
+# checkout the master branch to merge into and merge in the devel-eric branch
+git checkout master
+git merge devel-eric
+
+```
 
 ## Rebasing
 
